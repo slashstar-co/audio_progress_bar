@@ -117,11 +117,12 @@ class _SmoothLinearProgress extends StatelessWidget {
     final max = duration.inMilliseconds.toDouble();
     final value = position.inMilliseconds.clamp(0, max).toDouble();
     return SliderTheme(
-      data: sliderTheme ?? const SliderThemeData(activeTrackColor: Colors.green),
+      data: sliderTheme ?? const SliderThemeData(activeTrackColor: Colors.blue),
       child: Slider(
         min: 0,
         max: max,
         value: value,
+        thumbColor: Colors.white,
         onChanged: (value) {
           controller.seekTo(Duration(milliseconds: value.toInt()));
           onChanged.call(value);
@@ -190,7 +191,7 @@ class _SmoothCircularProgress extends StatelessWidget {
               trackColor: Colors.grey,
               hideShadow: true,
               dynamicGradient: false,
-              dotColor: Colors.purple,
+              dotColor: Colors.white,
             ),
           ),
       onChange: onChange,

@@ -34,7 +34,9 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Smooth Audio Seekbar'),
+          centerTitle: true,
+          backgroundColor: Colors.blue,
+          title: const Text('Smooth Audio Progress bar',style: TextStyle(color: Colors.white),),
         ),
         body: Center(
           child: Column(
@@ -54,12 +56,19 @@ class _MyAppState extends State<MyApp> {
                   manager.seekTo(Duration(milliseconds: value.toInt()));
                 },
               ),
+              const SizedBox(height: 40),
               StreamBuilder(
                 stream: manager.playerStateStream,
                 builder: (context, snapshot) {
                   final isPlaying = snapshot.data?.playing ?? false;
-                  return InkWell(
-                    onTap: () {
+                  return IconButton(
+                    icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow,size: 36),
+                    color: Colors.white,
+                    style: IconButton.styleFrom(
+                      padding: const EdgeInsets.all(16),
+                      backgroundColor: Colors.blue,
+                    ),
+                    onPressed: () {
                       if (isPlaying) {
                         manager.pause();
                         manager1.pause();
@@ -68,7 +77,6 @@ class _MyAppState extends State<MyApp> {
                         manager1.play();
                       }
                     },
-                    child: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
                   );
                 },
               ),
