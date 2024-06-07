@@ -35,7 +35,7 @@ class AudioProgressBar extends StatefulWidget {
         assert(
             sliderTheme == null ||
                 audioPlayerManager.sliderType != SliderType.circular,
-            "You can use sliderTheme with sliderType of SliderType.linear") {}
+            "You can use sliderTheme with sliderType of SliderType.linear");
 
   @override
   State<AudioProgressBar> createState() => _AudioProgressBarState();
@@ -98,7 +98,6 @@ class _AudioProgressBarState extends State<AudioProgressBar> {
 
 class _SmoothLinearProgress extends StatelessWidget {
   const _SmoothLinearProgress({
-    super.key,
     required this.position,
     required this.duration,
     required this.controller,
@@ -136,7 +135,7 @@ class _SmoothLinearProgress extends StatelessWidget {
 
 class _SmoothCircularProgress extends StatelessWidget {
   const _SmoothCircularProgress({
-    super.key,
+    // super.key,
     required this.position,
     required this.duration,
     required this.maxSeek,
@@ -170,7 +169,7 @@ class _SmoothCircularProgress extends StatelessWidget {
       innerWidget: (percentage) => Center(
         child: innerWidget ??
             Text(
-              "${(position.inMinutes).toString().padLeft(2, '0')}:${((position.inSeconds ?? 0) % 60).toString().padLeft(2, '0')}",
+              "${(position.inMinutes).toString().padLeft(2, '0')}:${((position.inSeconds) % 60).toString().padLeft(2, '0')}",
               style: innerWidgetTextStyle ??
                   const TextStyle(
                     fontSize: 36,

@@ -1,7 +1,8 @@
 part of 'widgets.dart';
 
 class SmoothAudioProgress extends StatefulWidget {
-  const SmoothAudioProgress({super.key,
+  const SmoothAudioProgress({
+    super.key,
     required this.builder,
     this.child,
     required this.positionStream,
@@ -18,8 +19,7 @@ class SmoothAudioProgress extends StatefulWidget {
   final Duration? duration;
 
   @override
-  _SmoothAudioProgressState createState() => _SmoothAudioProgressState();
-
+  State<SmoothAudioProgress> createState() => _SmoothAudioProgressState();
 }
 
 class _SmoothAudioProgressState extends State<SmoothAudioProgress> with SingleTickerProviderStateMixin {
@@ -52,7 +52,7 @@ class _SmoothAudioProgressState extends State<SmoothAudioProgress> with SingleTi
     final offset = position - currentPosition;
     final correct = widget.playing && offset.inMilliseconds > -500 && offset.inMilliseconds < -50;
     final correction = const Duration(milliseconds: 500) - offset;
-    print('_onPositionChange: correct: $correct offset: $offset correction: $correction');
+    // print('_onPositionChange: correct: $correct offset: $offset correction: $correction');
     final targetPos = correct ? value : position.inMilliseconds / (widget.duration?.inMilliseconds ?? 0);
     final duration = correct ? widget.duration! + correction : widget.duration ?? Duration.zero;
 

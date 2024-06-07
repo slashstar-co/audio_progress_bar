@@ -31,12 +31,12 @@ flutter:
         pluginClass: AudioProgressBarPlugin
       ios:
         pluginClass: AudioProgressBarPlugin
-      linux:
-        pluginClass: AudioProgressBarPlugin
-      macos:
-        pluginClass: AudioProgressBarPlugin
-      windows:
-        pluginClass: AudioProgressBarPluginCApi
-      web:
-        pluginClass: AudioProgressBarWeb
-        fileName: audio_progress_bar_web.dart
+#      linux:
+#        pluginClass: AudioProgressBarPlugin
+#      macos:
+#        pluginClass: AudioProgressBarPlugin
+#      windows:
+#        pluginClass: AudioProgressBarPluginCApi
+#      web:
+#        pluginClass: AudioProgressBarWeb
+#        fileName: audio_progress_bar_web.dart
