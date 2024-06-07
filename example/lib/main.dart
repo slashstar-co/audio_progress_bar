@@ -45,14 +45,12 @@ class _MyAppState extends State<MyApp> {
               AudioProgressBar(
                 audioPlayerManager: manager,
                 onChanged: (value) {
-                  print("value $value");
                   manager1.seekTo(Duration(milliseconds: value.toInt()));
                 },
               ),
               AudioProgressBar(
                 audioPlayerManager: manager1,
                 onChanged: (value) {
-                  print("value $value");
                   manager.seekTo(Duration(milliseconds: value.toInt()));
                 },
               ),
@@ -62,7 +60,7 @@ class _MyAppState extends State<MyApp> {
                 builder: (context, snapshot) {
                   final isPlaying = snapshot.data?.playing ?? false;
                   return IconButton(
-                    icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow,size: 36),
+                    icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow, size: 36),
                     color: Colors.white,
                     style: IconButton.styleFrom(
                       padding: const EdgeInsets.all(16),
